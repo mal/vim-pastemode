@@ -19,9 +19,10 @@ endf
 " manage toggling of paste and insert modes
 fu s:toggle(mode)
 
-    " enable intercept when in non-paste insert mode
+    " enable intercept and cache number state when in non-paste insert mode
     "   n.b. insertenter occurs before v:insertmode is updated, so look for 'r' not 'i'
     if ( v:insertmode == 'i' || v:insertmode == 'r' && a:mode == 'enter' ) && ! &paste
+        let s:number = &number
         call <SID>map()
     endif
 
@@ -40,6 +41,9 @@ fu s:toggle(mode)
     " entering or leaving paste mode, flip!
     if a:mode == 'map' || &paste
         set invpaste
+        if s:number
+            set invnumber
+        endif
     endif
 
 endf
