@@ -5,11 +5,11 @@
 " URL: https://github.com/mal/pastemode.vim
 "
 
-" Only do this when not done yet for this buffer
-if exists("b:loaded_paste_mode_plugin")
+" Only do this once
+if exists("s:loaded_paste_mode_plugin")
     finish
 endif
-let b:loaded_paste_mode_plugin = 1
+let s:loaded_paste_mode_plugin = 1
 
 " map an intercept to the insert key
 fu s:map()
