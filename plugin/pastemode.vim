@@ -49,5 +49,5 @@ fu s:toggle(mode)
 endf
 
 " map/hooks for paste mode
-au insertchange * call <SID>toggle('change')
-au insertenter * call <SID>toggle('enter')
+au insertchange * call s:toggle('change')
+au insertenter * call s:toggle('enter')
