@@ -36,8 +36,6 @@ fu s:toggle(mode)
         iunmap <insert>
     endif
 
-    let s:paste = &paste
-
     " entering or leaving paste mode, flip!
     if a:mode == 'map' || &paste
         set invpaste
