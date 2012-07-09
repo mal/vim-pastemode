@@ -34,7 +34,8 @@ fu s:intercept()
     set paste
     " cache number state before turning them off
     let w:number = &number
-    set nonumber
+    let w:relativenumber = &relativenumber
+    set nonumber norelativenumber
     " hack to force the status line to update in insert mode
     echo
     " output will be printed, so make it blank
@@ -86,6 +87,9 @@ fu s:update()
         " restore pre-paste number state
         if exists('w:number') && w:number
             set number
+        endif
+        if exists('w:relativenumber') && w:relativenumber
+            set relativenumber
         endif
     else
         " entering insert mode, map intercept
